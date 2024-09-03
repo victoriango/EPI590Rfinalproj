@@ -1,7 +1,7 @@
 #read in data
 library(tidyverse)
 library(gtsummary)
-ikea <- read.csv("~/R studio epi590r r bootcamp/Final project/ikea.csv")
+ikea <- read.csv("~/R studio epi590r r bootcamp/EPI590Rfinalproj/ikea.csv")
 view(ikea)
 glimpse(ikea)
 
