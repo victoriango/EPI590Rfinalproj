@@ -1,7 +1,8 @@
 #read in data
 library(tidyverse)
 library(gtsummary)
-ikea <- read.csv("~/R studio epi590r r bootcamp/EPI590Rfinalproj/ikea.csv")
+library(here)
+ikea <- read.csv(here::here("ikea.csv"))
 view(ikea)
 glimpse(ikea)
 
@@ -31,8 +32,7 @@ tbl_uvregression(
 ) |>
 	bold_labels()
 
-#data figure
-# Basic histogram with customized titles and labels
+#data figure: Basic histogram with custom titles and labels
 hist(ikea$width,
 		 main = "Distribution of IKEA Furniture Width",  # Title of the histogram
 		 xlab = "Width (in cm)",                         # X-axis label
