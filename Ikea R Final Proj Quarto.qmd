@@ -2,6 +2,9 @@
 title: "Ikea R final proj Quarto"
 format: html
 editor: visual
+execute: 
+  eval: false
+  echo: false
 ---
 
 ## Running Code
