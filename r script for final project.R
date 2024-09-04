@@ -36,11 +36,11 @@ tbl_uvregression(
 png(filename = here("ikeawidthdistr.png"))
 
 hist(ikea$width,
-		 main = "Distribution of IKEA Furniture Width",  # Title of the histogram
-		 xlab = "Width (in cm)",                         # X-axis label
-		 ylab = "Frequency",                             # Y-axis label
-		 col = "#1E90FF",                                # Color of the bars
-		 border = "black")                               # Color of the bar borders
+		 main = "Distribution of IKEA Furniture Width",  # title of the histogram
+		 xlab = "Width (in cm)",                         # x-axis label
+		 ylab = "Frequency",                             # y-axis label
+		 col = "#1E90FF",                                # color of the bars
+		 border = "black")                               # color of the bar borders
 
 dev.off()
 
@@ -51,5 +51,5 @@ custom_sd <- function(x) {
 	sqrt(sum((x - mean_x)^2) / (n - 1))
 }
 
-# Usage:
+# usage:
 custom_sd(ikea$price)
