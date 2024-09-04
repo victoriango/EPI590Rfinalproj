@@ -40,6 +40,8 @@ hist(ikea$width,
 		 col = "#1E90FF",                                   # Color of the bars
 		 border = "black")                               # Color of the bar borders
 
+ggsave(here("ikeawidthdistr.png"))
+
 #custom function for sd
 custom_sd <- function(x) {
 	n <- length(x)
