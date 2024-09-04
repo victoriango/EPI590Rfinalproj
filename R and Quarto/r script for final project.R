@@ -2,7 +2,7 @@
 library(tidyverse)
 library(gtsummary)
 library(here)
-ikea <- read.csv(here::here("ikea.csv"))
+ikea <- read.csv(here::here("Data", "ikea.csv"))
 view(ikea)
 glimpse(ikea)
 
@@ -33,7 +33,7 @@ tbl_uvregression(
 	bold_labels()
 
 #data figure: Basic histogram with custom titles and labels
-png(filename = here("ikeawidthdistr.png"))
+png(filename = here("Figure","ikeawidthdistr.png"))
 
 hist(ikea$width,
 		 main = "Distribution of IKEA Furniture Width",  # title of the histogram
@@ -51,5 +51,5 @@ custom_sd <- function(x) {
 	sqrt(sum((x - mean_x)^2) / (n - 1))
 }
 
-# usage:
+# usage fo custom function:
 custom_sd(ikea$price)
