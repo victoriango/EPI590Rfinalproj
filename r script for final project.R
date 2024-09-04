@@ -33,14 +33,16 @@ tbl_uvregression(
 	bold_labels()
 
 #data figure: Basic histogram with custom titles and labels
+png(filename = here("ikeawidthdistr.png"))
+
 hist(ikea$width,
 		 main = "Distribution of IKEA Furniture Width",  # Title of the histogram
 		 xlab = "Width (in cm)",                         # X-axis label
 		 ylab = "Frequency",                             # Y-axis label
-		 col = "#1E90FF",                                   # Color of the bars
+		 col = "#1E90FF",                                # Color of the bars
 		 border = "black")                               # Color of the bar borders
 
-ggsave(here("ikeawidthdistr.png"))
+dev.off()
 
 #custom function for sd
 custom_sd <- function(x) {
