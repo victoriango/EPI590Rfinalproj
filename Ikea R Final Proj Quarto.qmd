@@ -7,23 +7,54 @@ execute:
   echo: false
 ---
 
-## Running Code
-
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+Package read-in and here::here
 
 ```{r}
-library(tidyverse) 
-
-library(gtsummary) 
-
-ikea <- read.csv("~/R studio epi590r r bootcamp/EPI590Rfinalproj/ikea.csv")
+library(tidyverse)
+library(gtsummary)
+library(here)
+ikea <- read.csv(here::here("ikea.csv"))
 ```
 
-You can add options to executable code like this
+GT Summary table
 
 ```{r}
-#| echo: false
-2 * 2
+tbl_summary(
+	ikea,
+	by = sellable_online,
+	include = c(category, other_colors),
+label = list(
+	category ~"Furniture Category",
+	other_colors ~"Other Colors Sold"
+))
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+Regression Table
+
+```{r}
+tbl_uvregression(
+	ikea,
+	y = price,
+	include = c(category, sellable_online, other_colors, height, depth, width),
+	method = lm,
+	label = list(
+		category ~"Furniture Category",
+		other_colors ~"Other Colors Sold",
+		sellable_online ~"Sellable Online",
+  	height ~"Height in cm",
+  	depth ~"Depth in cm",
+  	width ~"Width in cm"),
+) |>
+	bold_labels()
+```
+
+Data figure: Basic histogram with custom titles and labels
+
+```{r}
+hist(ikea$width,
+		 main = "Distribution of IKEA Furniture Width",  # Title of the histogram
+		 xlab = "Width (in cm)",                         # X-axis label
+		 ylab = "Frequency",                             # Y-axis label
+		 col = "#1E90FF",                                   # Color of the bars
+		 border = "black")                               # Color of the bar borders
+```
