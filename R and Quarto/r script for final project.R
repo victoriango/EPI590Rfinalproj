@@ -1,7 +1,9 @@
-#read in data
+#load packages
 library(tidyverse)
 library(gtsummary)
 library(here)
+
+#load in clean data
 ikea <- read.csv(here::here("Data", "ikea.csv"))
 view(ikea)
 glimpse(ikea)
